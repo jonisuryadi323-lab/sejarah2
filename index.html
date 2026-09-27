@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jejak Sejarah: Perjanjian Kalijati - Sejarah SMA Fase E</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Serif Accent -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        parchment: '#fcf8f2',
+                        paper: '#f4ede2',
+                        sepia: '#e8dbca',
+                        imperial: '#8b0000',
+                        crimson: '#a31d1d',
+                        gold: '#d4af37',
+                        slateDark: '#1e293b',
+                        ink: '#2b2623'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f5f0;
+            color: #2b2623;
+        }
+
+        .font-serif-title {
+            font-family: 'Cinzel', serif;
+        }
+
+        .historical-card {
+            background: #ffffff;
+            border: 1px solid #e5dccb;
+            box-shadow: 0 4px 20px -2px rgba(139, 0, 0, 0.05);
+            border-radius: 1rem;
+        }
+
+        .vintage-border {
+            border: 2px solid #d4af37;
+            box-shadow: inset 0 0 10px rgba(139, 0, 0, 0.05);
+        }
+
+        .btn-hover {
+            transition: all 0.25s ease-in-out;
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(139, 0, 0, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4ede2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a31d1d;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-crimson selection:text-white">
+
+    <!-- Top Header -->
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-sepia px-4 py-3 shadow-sm">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="goToStep(0)">
+                <div class="w-10 h-10 rounded-xl bg-imperial text-amber-300 flex items-center justify-center font-extrabold text-xl shadow-md border border-gold">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-slateDark leading-tight text-sm md:text-base font-serif-title">Jejak Sejarah</h1>
+                    <p class="text-xs text-crimson font-semibold">Perjanjian Kalijati (1942)</p>
+                </div>
+            </div>
+
+            <!-- Global Progress Indicator -->
+            <div id="nav-progress-container" class="hidden md:flex items-center gap-3 text-xs font-semibold text-slate-600">
+                <span id="step-counter">Langkah 1 dari 7</span>
+                <div class="w-32 bg-sepia h-2.5 rounded-full overflow-hidden border border-amber-200">
+                    <div id="step-progress-bar" class="bg-crimson h-full transition-all duration-300" style="width: 14%;"></div>
+                </div>
+            </div>
+
+            <!-- Quick References Toggle -->
+            <button onclick="toggleSummaryDrawer()" class="bg-amber-50 hover:bg-amber-100 text-imperial border border-gold px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-2 transition">
+                <i class="fa-solid fa-scroll text-gold"></i>
+                <span class="hidden sm:inline">Rangkuman Cepat</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-6 w-full flex-grow">
+
+        <!-- SECTION 0: BERANDA / COVER -->
+        <section id="section-0" class="step-section text-center py-6 md:py-10">
+            <div class="inline-block p-4 rounded-full bg-amber-100/80 text-imperial mb-4 shadow-inner border border-gold">
+                <i class="fa-solid fa-monument text-5xl md:text-6xl"></i>
+            </div>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-imperial/10 text-imperial rounded-full text-xs font-bold mb-4 border border-imperial/20">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>SEJARAH SMA FASE E (KELAS X) — KURIKULUM MERDEKA</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-5xl font-extrabold text-slateDark font-serif-title tracking-tight mb-2">
+                JEJAK SEJARAH
+            </h1>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-crimson mb-6">
+                PERJANJIAN KALIJATI 1942
+            </h2>
+            <p class="text-slate-600 font-medium text-sm md:text-base max-w-2xl mx-auto mb-8 italic bg-amber-50/60 p-4 rounded-2xl border border-amber-200">
+                "Sejarah bukan hanya tentang mengingat tanggal, tetapi memahami bagaimana sebuah peristiwa mengubah jalan hidup sebuah bangsa."
+            </p>
+
+            <!-- Metadata Info Card -->
+            <div class="historical-card max-w-xl mx-auto p-6 text-left mb-8 border-l-4 border-l-crimson">
+                <h3 class="font-bold text-slateDark text-base mb-3 flex items-center gap-2 border-b border-sepia pb-2">
+                    <i class="fa-solid fa-circle-info text-crimson"></i> Identitas Media Pembelajaran
+                </h3>
+                <div class="grid grid-cols-2 gap-3 text-xs md:text-sm">
+                    <div>
+                        <span class="text-slate-500 block">Mata Pelajaran:</span>
+                        <span class="font-bold text-slateDark">Sejarah Indonesia</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">Jenjang / Fase:</span>
+                        <span class="font-bold text-slateDark">SMA / Fase E</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">Topik Utama:</span>
+                        <span class="font-bold text-slateDark">Pendudukan Jepang di Indonesia</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block">Sub-Materi:</span>
+                        <span class="font-bold text-crimson">Perjanjian Kalijati (8 Maret 1942)</span>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="goToStep(1)" class="btn-hover bg-imperial hover:bg-crimson text-amber-100 font-bold text-base md:text-lg px-8 py-4 rounded-2xl shadow-lg border border-gold flex items-center gap-3 mx-auto">
+                <span>Mulai Jelajah Sejarah</span>
+                <i class="fa-solid fa-compass-drafting"></i>
+            </button>
+        </section>
+
+        <!-- SECTION 1: TUJUAN PEMBELAJARAN -->
+        <section id="section-1" class="step-section hidden py-6">
+            <div class="bg-imperial text-amber-50 rounded-3xl p-6 md:p-8 shadow-xl mb-6 relative overflow-hidden border border-gold">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div class="flex items-center gap-2 text-amber-300 text-xs font-bold mb-2 tracking-wider">
+                    <i class="fa-solid fa-bullseye text-base"></i>
+                    <span>TARGET CAPAIAN PEMBELAJARAN FASE E</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-3 font-serif-title">Apa yang Akan Kamu Kuasai?</h2>
+                <p class="text-amber-100/90 text-xs md:text-sm mb-6">
+                    Setelah menyelesaikan modul interaktif ini, kamu diharapkan mampu menganalisis peristiwa Perjanjian Kalijati secara kritis dan kontekstual melalui capaian berikut:
+                </p>
+
+                <!-- Checklist Objectives -->
+                <div class="space-y-3">
+                    <label class="flex items-start gap-3 bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/20 cursor-pointer hover:bg-white/20 transition">
+                        <input type="checkbox" checked disabled class="mt-1 w-4 h-4 accent-gold rounded">
+                        <span class="text-xs md:text-sm text-amber-50 font-medium">1. Menjelaskan latar belakang ekspansi & kedatangan Jepang ke Indonesia (Perang Pasifik).</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/20 cursor-pointer hover:bg-white/20 transition">
+                        <input type="checkbox" checked disabled class="mt-1 w-4 h-4 accent-gold rounded">
+                        <span class="text-xs md:text-sm text-amber-50 font-medium">2. Menganalisis kondisi Hindia Belanda menjelang kekalahan dari pasukan Jepang.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/20 cursor-pointer hover:bg-white/20 transition">
+                        <input type="checkbox" checked disabled class="mt-1 w-4 h-4 accent-gold rounded">
+                        <span class="text-xs md:text-sm text-amber-50 font-medium">3. Mengidentifikasi kronologi, lokasi (Subang), waktu (8 Maret 1942), dan pihak yang terlibat.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/20 cursor-pointer hover:bg-white/20 transition">
+                        <input type="checkbox" checked disabled class="mt-1 w-4 h-4 accent-gold rounded">
+                        <span class="text-xs md:text-sm text-amber-50 font-medium">4. Memahami isi penyerahan tanpa syarat (Unconditional Surrender) Belanda kepada Jepang.</span>
+                    </label>
+                    <label class="flex items-start gap-3 bg-white/10 backdrop-blur p-3.5 rounded-xl border border-white/20 cursor-pointer hover:bg-white/20 transition">
+                        <input type="checkbox" checked disabled class="mt-1 w-4 h-4 accent-gold rounded">
+                        <span class="text-xs md:text-sm text-amber-50 font-medium">5. Menganalisis dampak Perjanjian Kalijati terhadap peralihan kekuasaan dan perjuangan kemerdekaan.</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToStep(0)" class="px-5 py-2.5 rounded-xl border border-sepia bg-white text-slate-700 font-semibold text-xs md:text-sm hover:bg-amber-50">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Kembali
+                </button>
+                <button onclick="goToStep(2)" class="px-6 py-3 rounded-xl bg-imperial hover:bg-crimson text-white font-bold text-xs md:text-sm shadow-md flex items-center gap-2">
+                    <span>Lanjut: Aktivitas Pemantik</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: APERSEPSI / PEMANTIK -->
+        <section id="section-2" class="step-section hidden py-6">
+            <div class="historical-card p-6 md:p-8 mb-6">
+                <div class="flex items-center gap-2 text-crimson font-bold text-xs mb-2 uppercase tracking-wider">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Aktivitas Berpikir Kritis (Apersepsi)</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slateDark mb-3">Refleksi Awal Perubahan Kekuasaan</h2>
+                <p class="text-slate-600 text-sm mb-6">
+                    Bayangkan kamu berada di Indonesia pada awal bulan Maret 1942. Pemerintah Belanda yang telah berkuasa lebih dari 300 tahun tiba-tiba menyerah tanpa syarat kepada tentara Jepang.
+                </p>
+
+                <!-- Interactive Question 1 -->
+                <div class="p-5 bg-amber-50/70 rounded-2xl border border-amber-200 mb-6">
+                    <p class="font-bold text-slateDark text-sm mb-3">
+                         Pertanyaan 1: Menurutmu, apa dampak psikologis dan politik utama bagi masyarakat Indonesia saat terjadi penyerahan kekuasaan mendadak dari Belanda ke Jepang?
+                    </p>
+                    <div class="space-y-2">
+                        <button onclick="selectApersepsi(1, 'A')" class="apersepsi-btn-1 w-full text-left p-3 rounded-xl border border-slate-300 bg-white text-xs md:text-sm font-medium hover:border-crimson transition">
+                            A. Rakyat terkejut karena mitos kehebatan militer Eropa (Belanda) hancur seketika di tangan bangsa Asia (Jepang).
+                        </button>
+                        <button onclick="selectApersepsi(1, 'B')" class="apersepsi-btn-1 w-full text-left p-3 rounded-xl border border-slate-300 bg-white text-xs md:text-sm font-medium hover:border-crimson transition">
+                            B. Masyarakat langsung yakin bahwa Jepang akan segera memberikan kemerdekaan penuh tanpa syarat.
+                        </button>
+                        <button onclick="selectApersepsi(1, 'C')" class="apersepsi-btn-1 w-full text-left p-3 rounded-xl border border-slate-300 bg-white text-xs md:text-sm font-medium hover:border-crimson transition">
+                            C. Belanda sengaja menyerahkan Indonesia secara sukarela agar Indonesia menjadi negara merdeka.
+                        </button>
+                    </div>
+                    <div id="apersepsi-fb-1" class="hidden mt-4 p-3.5 bg-amber-100 rounded-xl text-xs md:text-sm text-slate-800 border border-amber-300"></div>
+                </div>
+
+                <!-- Interactive Question 2 -->
+                <div class="p-5 bg-amber-50/70 rounded-2xl border border-amber-200">
+                    <p class="font-bold text-slateDark text-sm mb-3">
+                         Pertanyaan 2: Mengapa peristiwa Perjanjian Kalijati menjadi titik balik yang sangat krusial dalam sejarah Indonesia menuju 1945?
+                    </p>
+                    <div class="space-y-2">
+                        <button onclick="selectApersepsi(2, 'A')" class="apersepsi-btn-2 w-full text-left p-3 rounded-xl border border-slate-300 bg-white text-xs md:text-sm font-medium hover:border-crimson transition">
+                            A. Kerana menjadi tanda dimulainya era pendudukan militer baru yang kelak meruntuhkan tatanan kolonial lama dan membuka celah perjuangan kemerdekaan.
+                        </button>
+                        <button onclick="selectApersepsi(2, 'B')" class="apersepsi-btn-2 w-full text-left p-3 rounded-xl border border-slate-300 bg-white text-xs md:text-sm font-medium hover:border-crimson transition">
+                            B. Karena Belanda tetap berkuasa bersama Jepang secara berdampingan di Jawa.
+                        </button>
+                    </div>
+                    <div id="apersepsi-fb-2" class="hidden mt-4 p-3.5 bg-amber-100 rounded-xl text-xs md:text-sm text-slate-800 border border-amber-300"></div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToStep(1)" class="px-5 py-2.5 rounded-xl border border-sepia bg-white text-slate-700 font-semibold text-xs md:text-sm hover:bg-amber-50">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Kembali
+                </button>
+                <button onclick="goToStep(3)" class="px-6 py-3 rounded-xl bg-imperial hover:bg-crimson text-white font-bold text-xs md:text-sm shadow-md flex items-center gap-2">
+                    <span>Eksplorasi Materi & Timeline</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: MATERI BACAAN & TIMELINE -->
+        <section id="section-3" class="step-section hidden py-6">
+            <div class="mb-6 flex items-center justify-between flex-wrap gap-2">
+                <div>
+                    <span class="text-xs font-bold text-crimson tracking-wider uppercase">Eksplorasi Mendalam</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slateDark font-serif-title">Materi & Kronologi Perjanjian Kalijati</h2>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="switchMateriTab('tab1')" id="btn-materi-tab1" class="materi-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-imperial text-amber-100 border border-gold">
+                        1. Latar Belakang & Invasi
+                    </button>
+                    <button onclick="switchMateriTab('tab2')" id="btn-materi-tab2" class="materi-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-sepia text-slate-700 hover:bg-amber-200">
+                        2. Perjanjian Kalijati 8 Maret 1942
+                    </button>
+                    <button onclick="switchMateriTab('tab3')" id="btn-materi-tab3" class="materi-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-sepia text-slate-700 hover:bg-amber-200">
+                        3. Tokoh & Dampak Sejarah
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content Container -->
+            <div class="historical-card p-6 md:p-8 mb-6">
+
+                <!-- TAB 1: LATAR BELAKANG & INVASI -->
+                <div id="materi-content-tab1" class="materi-pane space-y-6">
+                    <div class="bg-amber-50 p-4 rounded-2xl border-l-4 border-l-imperial">
+                        <h3 class="font-bold text-slateDark text-base mb-1">Perang Pasifik & Ambisi Restorasi Meiji Jepang</h3>
+                        <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                            Keterlibatan Jepang dalam Perang Dunia II dimulai dengan serangan mendadak ke pangkalan militer Amerika Serikat di Pearl Harbor pada 8 Desember 1941. Jepang memerlukan pasokan sumber daya alam—terutama minyak bumi, karet, dan aluminium—untuk membiayai mesin perangnya. Hindia Belanda (Indonesia) menjadi sasaran utama karena kaya akan minyak bumi (Tarakan, Balikpapan, Palembang).
+                        </p>
+                    </div>
+
+                    <!-- Timeline Graphic -->
+                    <div class="border-l-2 border-crimson pl-4 ml-2 space-y-6">
+                        <div class="relative">
+                            <div class="absolute -left-[23px] top-1 w-3.5 h-3.5 rounded-full bg-crimson border-2 border-white"></div>
+                            <span class="text-xs font-bold text-crimson bg-crimson/10 px-2 py-0.5 rounded">8 Desember 1941</span>
+                            <h4 class="font-bold text-slateDark text-sm mt-1">Deklarasi Perang & Serangan Pearl Harbor</h4>
+                            <p class="text-xs text-slate-600 mt-1">Jepang menyerang Pearl Harbor, memicu Perang Asia Timur Raya / Perang Pasifik.</p>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[23px] top-1 w-3.5 h-3.5 rounded-full bg-crimson border-2 border-white"></div>
+                            <span class="text-xs font-bold text-crimson bg-crimson/10 px-2 py-0.5 rounded">11 Januari 1942</span>
+                            <h4 class="font-bold text-slateDark text-sm mt-1">Pendaratan Pertama di Tarakan, Kalimantan</h4>
+                            <p class="text-xs text-slate-600 mt-1">Tentara Jepang (Tentara ke-16) mendarat pertama kali di Tarakan untuk menguasai kilang minyak bumi.</p>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[23px] top-1 w-3.5 h-3.5 rounded-full bg-crimson border-2 border-white"></div>
+                            <span class="text-xs font-bold text-crimson bg-crimson/10 px-2 py-0.5 rounded">Februari 1942</span>
+                            <h4 class="font-bold text-slateDark text-sm mt-1">Kekalahan Sekutu di Pertempuran Laut Jawa</h4>
+                            <p class="text-xs text-slate-600 mt-1">Armada Sekutu (ABDACOM) dihancurkan oleh Angkatan Laut Jepang di Pertempuran Laut Jawa.</p>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -left-[23px] top-1 w-3.5 h-3.5 rounded-full bg-crimson border-2 border-white"></div>
+                            <span class="text-xs font-bold text-crimson bg-crimson/10 px-2 py-0.5 rounded">1 Maret 1942</span>
+                            <h4 class="font-bold text-slateDark text-sm mt-1">Pendaratan Serentak di Pulau Jawa</h4>
+                            <p class="text-xs text-slate-600 mt-1">Pasukan Jepang mendarat di tiga titik utama Pulau Jawa: Banten, Eretan Wetan (Indramayu), dan Kragan (Rembang).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: PERJANJIAN KALIJATI -->
+                <div id="materi-content-tab2" class="materi-pane hidden space-y-6">
+                    <div class="border-b border-sepia pb-4">
+                        <span class="text-xs font-bold text-imperial bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+                            Fakta Utama Peristiwa
+                        </span>
+                        <h3 class="text-xl font-bold text-slateDark mt-2 font-serif-title">Perjanjian Kalijati (8 Maret 1942)</h3>
+                        <p class="text-slate-600 text-xs md:text-sm mt-1">
+                            Perjanjian Kalijati terjadi di Pangkalan Udara Kalijati, Subang, Jawa Barat. Perjanjian ini menandai penyerahan kekuasaan tanpa syarat dari pihak Sekutu/Belanda kepada Tentara Jepang.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-amber-50/80 rounded-2xl border border-amber-200">
+                            <h4 class="font-bold text-imperial text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot"></i> Lokasi & Waktu Peristiwa
+                            </h4>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li><strong>Tanggal:</strong> Minggu, 8 Maret 1942</li>
+                                <li><strong>Tempat:</strong> Rumah Dinas Perwira Staf Pangkalan Udara (Vliegveld) Kalijati, Subang, Jawa Barat.</li>
+                                <li><strong>Suasana:</strong> Pihak Belanda terdesak tanpa pilihan setelah Batavia (Jakarta) dan Bandung dikepung Jepang.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-amber-50/80 rounded-2xl border border-amber-200">
+                            <h4 class="font-bold text-imperial text-sm mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-file-signature"></i> Isi Inti Perjanjian
+                            </h4>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li><strong>Penyerahan Tanpa Syarat:</strong> Belanda menyerahkan SELURUH wilayah Hindia Belanda tanpa syarat kepada Tentara Jepang.</li>
+                                <li><strong>Penghentian Perlawanan:</strong> Seluruh angkatan militer Belanda (KNIL) diinstruksikan menyerahkan senjata.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50 p-4 rounded-2xl border border-red-200">
+                        <h4 class="font-bold text-crimson text-sm mb-1">Makna Historis Utama</h4>
+                        <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                            Perjanjian Kalijati secara formal mengakhiri kekuasaan kolonialisme Belanda di Indonesia yang telah berlangsung selama kurun waktu hampir 3,5 abad (dimulai dari VOC hingga Hindia Belanda).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TAB 3: TOKOH & DAMPAK -->
+                <div id="materi-content-tab3" class="materi-pane hidden space-y-6">
+                    <h3 class="font-bold text-slateDark text-base mb-2">Tokoh-Tokoh Utama dalam Perjanjian Kalijati</h3>
+
+                    <!-- Tokoh Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 mx-auto rounded-full bg-imperial text-amber-300 flex items-center justify-center font-bold text-2xl mb-2 border-2 border-gold shadow">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <h4 class="font-bold text-slateDark text-sm">Jenderal Hitoshi Imamura</h4>
+                            <span class="text-[10px] bg-red-100 text-crimson px-2 py-0.5 rounded font-bold">Pihak Jepang</span>
+                            <p class="text-xs text-slate-600 mt-2">Panglima Tentara Ke-16 Jepang yang memimpin invasi ke Jawa dan mendiktekan syarat penyerahan Belanda.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 mx-auto rounded-full bg-slate-700 text-white flex items-center justify-center font-bold text-2xl mb-2 border-2 border-slate-400 shadow">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <h4 class="font-bold text-slateDark text-sm">Jonkheer A.W.L. Tjarda van Starkenborgh</h4>
+                            <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Pihak Belanda</span>
+                            <p class="text-xs text-slate-600 mt-2">Gubernur Jenderal terakhir Hindia Belanda yang menghadiri perundingan dan ditawan oleh Jepang.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 mx-auto rounded-full bg-slate-700 text-white flex items-center justify-center font-bold text-2xl mb-2 border-2 border-slate-400 shadow">
+                                <i class="fa-solid fa-person-military-pointing"></i>
+                            </div>
+                            <h4 class="font-bold text-slateDark text-sm">Letnan Jenderal Hein ter Poorten</h4>
+                            <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Pihak Belanda</span>
+                            <p class="text-xs text-slate-600 mt-2">Panglima Militer Sekutu / KNIL yang menandatangani dokumen penyerahan militer tanpa syarat.</p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-sepia pt-4 mt-4">
+                        <h4 class="font-bold text-slateDark text-sm mb-2">Dampak Perjanjian Kalijati terhadap Perjuangan Kemerdekaan</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
+                                <strong class="text-imperial block mb-1">1. Pembubaran Tatanan Kolonial Belanda</strong>
+                                Seluruh birokrasi dan kekuatan militer Belanda dilumpuhkan, menciptakan ruang baru dalam struktur kepemimpinan lokal.
+                            </div>
+                            <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
+                                <strong class="text-imperial block mb-1">2. Pemanfaatan Organisasi Bentukan Jepang</strong>
+                                Tokoh nasionalis (Soekarno, Hatta, dll) memanfaatkan organisasi seperti PUTERA dan BPUPKI untuk mempersiapkan kemerdekaan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToStep(2)" class="px-5 py-2.5 rounded-xl border border-sepia bg-white text-slate-700 font-semibold text-xs md:text-sm hover:bg-amber-50">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Kembali
+                </button>
+                <button onclick="goToStep(4)" class="px-6 py-3 rounded-xl bg-imperial hover:bg-crimson text-white font-bold text-xs md:text-sm shadow-md flex items-center gap-2">
+                    <span>Lanjut ke Aktivitas Interaktif</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 4: AKTIVITAS & KUIS INTERAKTIF -->
+        <section id="section-4" class="step-section hidden py-6">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-crimson tracking-wider uppercase">Uji Pemahaman Komprehensif</span>
+                <h2 class="text-2xl font-bold text-slateDark font-serif-title">Aktivitas & Kuis Sejarah</h2>
+            </div>
+
+            <!-- Mini Challenge Tabs -->
+            <div class="flex gap-2 mb-4 overflow-x-auto pb-2">
+                <button onclick="switchQuizMode('matching')" id="btn-mode-matching" class="px-4 py-2 rounded-xl text-xs font-bold bg-imperial text-amber-100 border border-gold shrink-0">
+                    Aktivitas 1: Jodohkan Tokoh & Peran
+                </button>
+                <button onclick="switchQuizMode('quiz')" id="btn-mode-quiz" class="px-4 py-2 rounded-xl text-xs font-bold bg-sepia text-slate-700 hover:bg-amber-200 shrink-0">
+                    Aktivitas 2: Mini Quiz (10 Soal)
+                </button>
+            </div>
+
+            <!-- Matching Activity Box -->
+            <div id="matching-box" class="historical-card p-6 md:p-8 mb-6">
+                <h3 class="font-bold text-slateDark text-base mb-1">Aktivitas 1: Mencocokkan Tokoh & Peran Perjanjian Kalijati</h3>
+                <p class="text-xs text-slate-600 mb-4">Klik tombol jawaban yang paling sesuai untuk setiap tokoh di bawah ini:</p>
+
+                <div class="space-y-4 text-xs md:text-sm">
+                    <!-- Q1 -->
+                    <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200">
+                        <p class="font-bold text-slateDark mb-2">1. Jenderal Hitoshi Imamura</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            <button onclick="checkMatching(1, 'A')" class="m-btn-1 p-2.5 rounded-xl border border-slate-300 bg-white hover:border-crimson text-left">A. Panglima Tentara Ke-16 Jepang yang mendiktekan penyerahan tanpa syarat.</button>
+                            <button onclick="checkMatching(1, 'B')" class="m-btn-1 p-2.5 rounded-xl border border-slate-300 bg-white hover:border-crimson text-left">B. Gubernur Jenderal Inggris yang menguasai Jawa.</button>
+                        </div>
+                        <div id="match-fb-1" class="hidden mt-2 p-2 rounded-xl text-xs font-bold"></div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200">
+                        <p class="font-bold text-slateDark mb-2">2. Hein ter Poorten</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            <button onclick="checkMatching(2, 'A')" class="m-btn-2 p-2.5 rounded-xl border border-slate-300 bg-white hover:border-crimson text-left">A. Menteri Luar Negeri Jepang.</button>
+                            <button onclick="checkMatching(2, 'B')" class="m-btn-2 p-2.5 rounded-xl border border-slate-300 bg-white hover:border-crimson text-left">B. Letnan Jenderal & Panglima Perang KNIL/Sekutu yang menandatangani penyerahan militer.</button>
+                        </div>
+                        <div id="match-fb-2" class="hidden mt-2 p-2 rounded-xl text-xs font-bold"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Box -->
+            <div id="quiz-box" class="historical-card p-6 md:p-8 mb-6 hidden">
+                <div id="quiz-content">
+                    <!-- Rendered dynamically by JavaScript -->
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToStep(3)" class="px-5 py-2.5 rounded-xl border border-sepia bg-white text-slate-700 font-semibold text-xs md:text-sm hover:bg-amber-50">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Materi
+                </button>
+                <button onclick="goToStep(5)" class="px-6 py-3 rounded-xl bg-imperial hover:bg-crimson text-white font-bold text-xs md:text-sm shadow-md flex items-center gap-2">
+                    <span>Lihat Hasil & Skor</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 5: HASIL BELAJAR & SKOR -->
+        <section id="section-5" class="step-section hidden py-6">
+            <div class="historical-card p-6 md:p-8 text-center mb-6">
+                <div class="w-20 h-20 rounded-full bg-amber-100 text-imperial border-2 border-gold flex items-center justify-center text-4xl mx-auto mb-4 shadow-inner">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-slateDark font-serif-title mb-1">Hasil & Perolehan Skor</h2>
+                <p class="text-slate-500 text-xs md:text-sm mb-6">Rangkuman hasil latihan dan kuis Perjanjian Kalijati kamu:</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200">
+                        <span class="text-xs text-slate-500 block mb-1">Benar Kuis</span>
+                        <span id="score-quiz-correct" class="text-2xl font-extrabold text-emerald-700">0 / 10</span>
+                    </div>
+                    <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200">
+                        <span class="text-xs text-slate-500 block mb-1">Skor Kuis</span>
+                        <span id="score-quiz-val" class="text-2xl font-extrabold text-imperial">0</span>
+                    </div>
+                    <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200">
+                        <span class="text-xs text-slate-500 block mb-1">Persentase</span>
+                        <span id="score-percentage" class="text-2xl font-extrabold text-blue-700">0%</span>
+                    </div>
+                    <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200">
+                        <span class="text-xs text-slate-500 block mb-1">Lencana Keahlian</span>
+                        <span id="badge-title" class="text-xs font-extrabold text-crimson block mt-1">Sejarawan Muda</span>
+                    </div>
+                </div>
+
+                <div id="result-feedback-banner" class="p-4 rounded-2xl border bg-amber-50 text-left mb-6 text-xs md:text-sm text-slate-700">
+                    <p id="result-feedback-text">Selesaikan kuis untuk melihat rekomendasi pembelajaran!</p>
+                </div>
+
+                <div class="flex justify-center gap-3">
+                    <button onclick="goToStep(4); resetQuizEngine();" class="px-5 py-2.5 rounded-xl border border-sepia bg-white text-slate-700 font-semibold text-xs hover:bg-amber-50 flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>Coba Kuis Lagi</span>
+                    </button>
+                    <button onclick="goToStep(6)" class="px-6 py-3 rounded-xl bg-imperial hover:bg-crimson text-white font-bold text-xs md:text-sm shadow-md flex items-center gap-2">
+                        <span>Isi Lembar Refleksi</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: REFLEKSI PEMBELAJARAN -->
+        <section id="section-6" class="step-section hidden py-6">
+            <div class="historical-card p-6 md:p-8 mb-6">
+                <div class="flex items-center gap-2 text-crimson font-bold text-xs mb-2 uppercase tracking-wider">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>Refleksi Pembelajaran Mandiri</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slateDark font-serif-title mb-2">Lembar Refleksi Peserta Didik</h2>
+                <p class="text-slate-600 text-xs md:text-sm mb-6">
+                    Berikan pendapat dan jawabanmu secara jujur mengenai pemahaman materi Perjanjian Kalijati:
+                </p>
+
+                <form id="reflection-form" onsubmit="handleReflectionSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block font-semibold text-slateDark text-xs md:text-sm mb-2">1. Apa hal paling penting yang kamu pelajari dari peristiwa Perjanjian Kalijati 1942?</label>
+                        <textarea required rows="2" class="w-full p-3 bg-amber-50/50 border border-sepia rounded-xl text-xs md:text-sm text-slate-800 focus:ring-2 focus:ring-crimson outline-none" placeholder="Tuliskan pemahaman utamamu..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block font-semibold text-slateDark text-xs md:text-sm mb-2">2. Menurutmu, mengapa mitos keberadaan Belanda di Indonesia dapat runtuh hanya dalam waktu singkat oleh Jepang?</label>
+                        <textarea required rows="2" class="w-full p-3 bg-amber-50/50 border border-sepia rounded-xl text-xs md:text-sm text-slate-800 focus:ring-2 focus:ring-crimson outline-none" placeholder="Berikan analisismu..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block font-semibold text-slateDark text-xs md:text-sm mb-2">3. Bagaimana peristiwa Perjanjian Kalijati menjadi batu pijakan penting menuju Proklamasi Kemerdekaan 1945?</label>
+                        <textarea required rows="2" class="w-full p-3 bg-amber-50/50 border border-sepia rounded-xl text-xs md:text-sm text-slate-800 focus:ring-2 focus:ring-crimson outline-none" placeholder="Tuliskan analisismu..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 bg-imperial hover:bg-crimson text-amber-100 font-bold text-sm rounded-xl shadow border border-gold flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Kirim Lembar Refleksi</span>
+                    </button>
+                </form>
+
+                <div id="reflection-success" class="hidden mt-6 p-6 bg-emerald-50 rounded-2xl border border-emerald-200 text-center">
+                    <div class="text-4xl mb-2">📜</div>
+                    <h3 class="font-bold text-emerald-800 text-base mb-1">Refleksi Berhasil Disimpan!</h3>
+                    <p class="text-xs text-emerald-700">
+                        Selamat! Kamu telah menyelesaikan seluruh modul pembelajaran interaktif **Jejak Sejarah: Perjanjian Kalijati**. Tetap semangat mempelajari sejarah bangsa Indonesia!
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToStep(5)" class="px-5 py-2.5 rounded-xl border border-sepia bg-white text-slate-700 font-semibold text-xs md:text-sm hover:bg-amber-50">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Hasil
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FLOATING RANGKUMAN DRAWER -->
+    <div id="summary-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out border-l border-sepia flex flex-col">
+        <div class="p-4 bg-imperial text-amber-100 flex items-center justify-between border-b border-gold">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-scroll text-gold"></i>
+                <h3 class="font-bold text-sm font-serif-title">Rangkuman Perjanjian Kalijati</h3>
+            </div>
+            <button onclick="toggleSummaryDrawer()" class="text-amber-100 hover:text-white text-xl p-1">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-grow space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed">
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+                <strong class="text-imperial block">Waktu & Tempat:</strong>
+                8 Maret 1942 di Pangkalan Udara Kalijati, Subang, Jawa Barat.
+            </div>
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+                <strong class="text-imperial block">Pihak Berperan:</strong>
+                <ul class="list-disc pl-4 space-y-1 mt-1">
+                    <li><strong>Jepang:</strong> Jenderal Hitoshi Imamura</li>
+                    <li><strong>Belanda:</strong> Jonkheer Tjarda van Starkenborgh & Letjen Hein ter Poorten</li>
+                </ul>
+            </div>
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+                <strong class="text-imperial block">Isi Utama:</strong>
+                Penyerahan tanpa syarat (*Unconditional Surrender*) seluruh kekuasaan Belanda di Hindia Belanda kepada Jepang.
+            </div>
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+                <strong class="text-imperial block">Arti Penting Sejarah:</strong>
+                Mengakhiri penjajahan kolonial Belanda selama 3,5 abad dan memulai era pendudukan Jepang (1942-1945) yang memicu percepatan menuju Proklamasi Kemerdekaan Indonesia.
+            </div>
+        </div>
+        <div class="p-4 bg-amber-50 border-t border-sepia text-center">
+            <button onclick="toggleSummaryDrawer()" class="w-full py-2 bg-imperial text-white text-xs font-bold rounded-xl hover:bg-crimson">
+                Tutup Rangkuman
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-sepia py-4 px-4 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+            <span>&copy; 2026 Media Pembelajaran Sejarah SMA Fase E</span>
+            <span class="text-imperial font-semibold">Jejak Sejarah: Perjanjian Kalijati</span>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 0;
+        const totalSteps = 7; // Steps 0 to 6
+
+        // Sound Feedback using Web Audio API
+        function playAudioFx(type) {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                if (type === 'correct') {
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+                    osc.frequency.exponentialRampToValueAtTime(659.25, ctx.currentTime + 0.15); // E5
+                    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.25);
+                } else {
+                    osc.frequency.setValueAtTime(220, ctx.currentTime); // A3
+                    osc.frequency.exponentialRampToValueAtTime(174.61, ctx.currentTime + 0.2); // F3
+                    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.25);
+                }
+            } catch (e) {
+                // Audio fallback silent
+            }
+        }
+
+        // Navigation Controller
+        function goToStep(stepIndex) {
+            currentStep = stepIndex;
+            document.querySelectorAll('.step-section').forEach((sec, idx) => {
+                if (idx === stepIndex) {
+                    sec.classList.remove('hidden');
+                } else {
+                    sec.classList.add('hidden');
+                }
+            });
+
+            // Update Progress Bar
+            const progBar = document.getElementById('step-progress-bar');
+            const stepCounter = document.getElementById('step-counter');
+
+            if (progBar && stepCounter) {
+                const pct = Math.round(((stepIndex + 1) / totalSteps) * 100);
+                progBar.style.width = pct + '%';
+                stepCounter.innerText = `Langkah ${stepIndex + 1} dari ${totalSteps}`;
+            }
+
+            if (stepIndex === 4) {
+                renderQuizQuestion();
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Summary Drawer Toggle
+        function toggleSummaryDrawer() {
+            const drawer = document.getElementById('summary-drawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        // Apersepsi logic
+        function selectApersepsi(qNum, option) {
+            const fb = document.getElementById(`apersepsi-fb-${qNum}`);
+            fb.classList.remove('hidden');
+
+            if (qNum === 1) {
+                if (option === 'A') {
+                    playAudioFx('correct');
+                    fb.innerHTML = `<strong>Tepat sekali!</strong> Kekalahan cepat militer Belanda membakar mitos supremasi bangsa Barat dan membangkitkan kesadaran bahwa kekuasaan kolonial dapat dihancurkan.`;
+                } else {
+                    playAudioFx('wrong');
+                    fb.innerHTML = `<strong>Catatan Evaluasi:</strong> Opsi A lebih tepat. Masyarakat awal merasa terkejut dan terguncang melihat Belanda yang perkasa runtuh seketika.`;
+                }
+            } else if (qNum === 2) {
+                if (option === 'A') {
+                    playAudioFx('correct');
+                    fb.innerHTML = `<strong>Luar biasa!</strong> Perjanjian Kalijati secara resmi mengakhiri kekuasaan Belanda dan memulai periode pendudukan Jepang yang secara tak langsung menjadi laboratorium politik menuju kemerdekaan 1945.`;
+                } else {
+                    playAudioFx('wrong');
+                    fb.innerHTML = `<strong>Catatan Evaluasi:</strong> Opsi A adalah jawaban paling tepat.`;
+                }
+            }
+        }
+
+        // Switch Tabs in Section 3
+        function switchMateriTab(tabKey) {
+            document.querySelectorAll('.materi-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-imperial', 'text-amber-100', 'border-gold');
+                btn.classList.add('bg-sepia', 'text-slate-700');
+            });
+
+            const activeBtn = document.getElementById(`btn-materi-${tabKey}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-sepia', 'text-slate-700');
+                activeBtn.classList.add('bg-imperial', 'text-amber-100', 'border-gold');
+            }
+
+            document.querySelectorAll('.materi-pane').forEach(pane => pane.classList.add('hidden'));
+            const activePane = document.getElementById(`materi-content-${tabKey}`);
+            if (activePane) activePane.classList.remove('hidden');
+        }
+
+        // Matching Activity Logic
+        function checkMatching(qId, choice) {
+            const fb = document.getElementById(`match-fb-${qId}`);
+            fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-red-100', 'text-red-800');
+
+            if ((qId === 1 && choice === 'A') || (qId === 2 && choice === 'B')) {
+                playAudioFx('correct');
+                fb.classList.add('bg-emerald-100', 'text-emerald-800');
+                fb.innerText = "✓ Jawaban Benar! Pemahaman tokoh sangat baik.";
+            } else {
+                playAudioFx('wrong');
+                fb.classList.add('bg-red-100', 'text-red-800');
+                fb.innerText = "✕ Coba pelajari lagi peran tokoh di materi!";
+            }
+        }
+
+        // Quiz Mode Switch
+        function switchQuizMode(mode) {
+            const matchBtn = document.getElementById('btn-mode-matching');
+            const quizBtn = document.getElementById('btn-mode-quiz');
+            const matchBox = document.getElementById('matching-box');
+            const quizBox = document.getElementById('quiz-box');
+
+            if (mode === 'matching') {
+                matchBtn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-imperial text-amber-100 border border-gold shrink-0";
+                quizBtn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-sepia text-slate-700 hover:bg-amber-200 shrink-0";
+                matchBox.classList.remove('hidden');
+                quizBox.classList.add('hidden');
+            } else {
+                quizBtn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-imperial text-amber-100 border border-gold shrink-0";
+                matchBtn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-sepia text-slate-700 hover:bg-amber-200 shrink-0";
+                quizBox.classList.remove('hidden');
+                matchBox.classList.add('hidden');
+            }
+        }
+
+        // Quiz Questions Data (10 Items)
+        const quizQuestionsData = [
+            {
+                q: "1. Kapan Perjanjian Kalijati secara resmi ditandatangani?",
+                opts: ["8 Maret 1942", "17 Agustus 1945", "10 November 1945", "1 Maret 1942"],
+                correct: 0,
+                hint: "Terjadi di awal bulan Maret 1942 setelah tentara Jepang mendarat di Jawa."
+            },
+            {
+                q: "2. Di daerah manakah lokasi berlangsungnya Perjanjian Kalijati?",
+                opts: ["Subang, Jawa Barat", "Bandung, Jawa Barat", "Surakarta, Jawa Tengah", "Batavia (Jakarta)"],
+                correct: 0,
+                hint: "Bertempat di Pangkalan Udara Kalijati."
+            },
+            {
+                q: "3. Siapakah Panglima Tentara Ke-16 Jepang yang menerima penyerahan Belanda di Kalijati?",
+                opts: ["Jenderal Hitoshi Imamura", "Laksamana Maeda", "Jenderal Yamashita", "Kuniaki Koiso"],
+                correct: 0,
+                hint: "Panglima militer darat Jepang yang memimpin penyerbuan ke Pulau Jawa."
+            },
+            {
+                q: "4. Siapakah Gubernur Jenderal terakhir Hindia Belanda yang hadir saat Perjanjian Kalijati?",
+                opts: ["Tjarda van Starkenborgh Stachouwer", "Van den Bosch", "J.P. Coen", "Daendels"],
+                correct: 0,
+                hint: "Ia merupakan Gubernur Jenderal Hindia Belanda periode 1936–1942."
+            },
+            {
+                q: "5. Apa bentuk penyerahan kekuasaan dari Belanda kepada Jepang dalam Perjanjian Kalijati?",
+                opts: ["Penyerahan tanpa syarat (Unconditional Surrender)", "Penyerahan bersyarat dengan ganti rugi", "Perjanjian sewa wilayah", "Gencatan senjata sementara"],
+                correct: 0,
+                hint: "Belanda menyerahkan seluruh wilayah dan pasukan tanpa ada syarat khusus."
+            },
+            {
+                q: "6. Kota manakah di Kalimantan yang menjadi lokasi pendaratan pertama tentara Jepang pada Januari 1942?",
+                opts: ["Tarakan", "Pontianak", "Banjarmasin", "Samarinda"],
+                correct: 0,
+                hint: "Kota pelabuhan kaya minyak di Kalimantan Timur/Utara."
+            },
+            {
+                q: "7. Siapakah tokoh militer Belanda / KNIL yang menandatangani penyerahan militer?",
+                opts: ["Letnan Jenderal Hein ter Poorten", "Jenderal De Kock", "Karel Doorman", "Van Heutsz"],
+                correct: 0,
+                hint: "Panglima tertinggi Angkatan Perang Hindia Belanda (KNIL)."
+            },
+            {
+                q: "8. Mengapa Jepang sangat berambisi menguasai wilayah Hindia Belanda (Indonesia)?",
+                opts: ["Untuk menguasai sumber daya alam minyak bumi dan bahan mentah perang", "Ingin menyebarkan kebudayaan tradisional Eropa", "Membantu Indonesia merdeka secara sukarela", "Membangun pusat pariwisata dunia"],
+                correct: 0,
+                hint: "Jepang memerlukan bahan bakar minyak bumi untuk operasi perang Pasifik."
+            },
+            {
+                q: "9. Apa dampak Perjanjian Kalijati terhadap struktur kolonialisme Belanda di Indonesia?",
+                opts: ["Runtuhnya kekuasaan kolonial Belanda secara total setelah 3,5 abad", "Makin kuatnya posisi pemerintahan kolonial Belanda", "Pembentukan negara persemakmuran Belanda-Jepang", "Pengangkatan raja baru di Batavia"],
+                correct: 0,
+                hint: "Menandai berakhirnya era kekuasaan Hindia Belanda di bumi Nusantara."
+            },
+            {
+                q: "10. Apa hubungan strategis antara Perjanjian Kalijati dengan perjuangan menuju Proklamasi 1945?",
+                opts: ["Memuka periode baru di mana tokoh nasionalis memanfaatkan organisasi Jepang untuk konsolidasi kemerdekaan", "Menghapus seluruh gerakan kebangsaan di Indonesia", "Membuat Indonesia menjadi provinsi tetap Jepang", "Mengembalikan kekuasaan langsung kepada VOC"],
+                correct: 0,
+                hint: "Awal periode pendudukan Jepang yang melahirkan BPUPKI dan PPKI."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let userQuizAnswers = new Array(10).fill(null);
+
+        function renderQuizQuestion() {
+            const container = document.getElementById('quiz-content');
+            const item = quizQuestionsData[currentQuizIndex];
+
+            let html = `
+                <div class="flex items-center justify-between mb-4 flex-wrap gap-2 border-b border-sepia pb-3">
+                    <span class="text-xs font-bold text-imperial bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+                        Soal ${currentQuizIndex + 1} dari 10
+                    </span>
+                    <span class="text-xs text-slate-500 font-medium italic"><i class="fa-solid fa-lightbulb text-gold mr-1"></i>${item.hint}</span>
+                </div>
+
+                <h3 class="text-sm md:text-base font-bold text-slateDark mb-4">${item.q}</h3>
+
+                <div class="space-y-2.5 mb-6">
+            `;
+
+            item.opts.forEach((opt, oIdx) => {
+                const isSelected = userQuizAnswers[currentQuizIndex] === oIdx;
+                html += `
+                    <button onclick="selectQuizOption(${oIdx})" class="w-full text-left p-3.5 rounded-xl border ${isSelected ? 'border-imperial bg-amber-100 font-bold text-imperial shadow-sm' : 'border-slate-300 bg-white hover:bg-amber-50 text-slate-800'} text-xs md:text-sm transition flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full border ${isSelected ? 'border-imperial bg-imperial text-amber-100' : 'border-slate-400'} flex items-center justify-center text-xs shrink-0 font-bold">
+                            ${String.fromCharCode(65 + oIdx)}
+                        </div>
+                        <span>${opt}</span>
+                    </button>
+                `;
+            });
+
+            html += `
+                </div>
+
+                <div class="flex justify-between items-center pt-3 border-t border-sepia">
+                    <button onclick="prevQuizQ()" ${currentQuizIndex === 0 ? 'disabled class="opacity-40 text-slate-400 text-xs px-3 py-1.5"' : 'class="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-200"'}>
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Sebelum
+                    </button>
+
+                    ${currentQuizIndex < 9 ? `
+                        <button onclick="nextQuizQ()" class="px-5 py-2 bg-imperial text-amber-100 rounded-xl text-xs font-bold shadow hover:bg-crimson">
+                            Berikutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    ` : `
+                        <button onclick="calculateScore()" class="px-5 py-2 bg-emerald-700 text-white rounded-xl text-xs font-extrabold shadow hover:bg-emerald-800">
+                            Hitung Skor & Selesai <i class="fa-solid fa-check ml-1"></i>
+                        </button>
+                    `}
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function selectQuizOption(oIdx) {
+            userQuizAnswers[currentQuizIndex] = oIdx;
+            renderQuizQuestion();
+        }
+
+        function prevQuizQ() {
+            if (currentQuizIndex > 0) {
+                currentQuizIndex--;
+                renderQuizQuestion();
+            }
+        }
+
+        function nextQuizQ() {
+            if (currentQuizIndex < 9) {
+                currentQuizIndex++;
+                renderQuizQuestion();
+            }
+        }
+
+        function resetQuizEngine() {
+            currentQuizIndex = 0;
+            userQuizAnswers = new Array(10).fill(null);
+            renderQuizQuestion();
+        }
+
+        function calculateScore() {
+            let correctCount = 0;
+            quizQuestionsData.forEach((q, idx) => {
+                if (userQuizAnswers[idx] === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const score = correctCount * 10;
+            const pct = Math.round((correctCount / 10) * 100);
+
+            document.getElementById('score-quiz-correct').innerText = `${correctCount} / 10`;
+            document.getElementById('score-quiz-val').innerText = score;
+            document.getElementById('score-percentage').innerText = `${pct}%`;
+
+            const badgeEl = document.getElementById('badge-title');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (pct >= 80) {
+                badgeEl.innerText = "🏆 Sejarawan Handal Kalijati";
+                feedbackText.innerHTML = "<strong>Sangat Luar Biasa!</strong> Pemahamanmu mengenai sejarah Perjanjian Kalijati 1942 sangat mendalam dan presisi.";
+            } else if (pct >= 60) {
+                badgeEl.innerText = "📜 Peneliti Sejarah Muda";
+                feedbackText.innerHTML = "<strong>Bagus Sekali!</strong> Kamu sudah memahami sebagian besar fakta kronologi Perjanjian Kalijati.";
+            } else {
+                badgeEl.innerText = "📖 Pembelajar Sejarah Mandiri";
+                feedbackText.innerHTML = "<strong>Terus Berlatih!</strong> Silakan ulas kembali rangkuman materi dan timeline untuk memperkuat ingatanmu.";
+            }
+
+            goToStep(5);
+        }
+
+        // Handle Form Reflection
+        function handleReflectionSubmit(e) {
+            e.preventDefault();
+            document.getElementById('reflection-form').classList.add('hidden');
+            document.getElementById('reflection-success').classList.remove('hidden');
+            playAudioFx('correct');
+        }
+
+        // Initialize App Step 0
+        window.onload = function() {
+            goToStep(0);
+        };
+    </script>
+</body>
+</html>
